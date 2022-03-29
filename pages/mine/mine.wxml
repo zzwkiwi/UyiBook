@@ -1,0 +1,48 @@
+<!--pages/mine/mine.wxml-->
+
+<view class="content">
+  <view class="bg">
+    <view class="head">
+      <view class="top_box" bindtap="getUserProfile">
+
+        <block wx:if="{{canIUseOpenData}}" class="top_1">
+          <view class="userinfo-avatar" bindtap="bindViewTap" bindtap="go" data-go="/pages/edit/edit" data-status="1">
+            <open-data type="userAvatarUrl" class="top_1_1"></open-data>
+          </view>
+          <open-data type="userNickName" class="top_1_2"></open-data>
+        </block>
+        <block wx:elif="{{!hasUserInfo}}">
+          <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 登录 </button>
+          <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 登录 </button>
+          <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+        </block>
+        <block wx:else>
+          <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover" bindtap="go"
+            data-go="/pages/edit/edit" data-status="1"></image>
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+<!-- 
+        <view class="top_1">
+          <view wx:if="{{!userinfo}}" class="top_1_1" bindtap="getUserProfile">点击登录</view>
+          <view wx:if="{{userinfo}}" class="top_1_1">
+            <open-data type="userNickName"></open-data>
+          </view>
+          <view class="top_1_2" wx:if="{{!userinfo}}" bindtap="getUserProfile">一秒登录，体验所有功能</view>
+          <view class="top_1_2" wx:if="{{userinfo}}" bindtap="go" data-go="/pages/edit/edit" data-status="1">点击修改资料
+          </view>
+        </view>
+
+        <view class="top_2">
+          <view class="avator">
+            <open-data wx:if="{{userinfo}}" type="userAvatarUrl"></open-data>
+            <image wx:if="{{!userinfo}}" src="/images/avator.png"></image>
+          </view>
+        </view> -->
+
+      </view>
+
+
+
+    </view>
+  </view>
+</view>

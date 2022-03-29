@@ -1,0 +1,72 @@
+<!--index.wxml-->
+<view class="content">
+  <view class="bg">
+    <view class="head">
+      <view class="top_box" wx:if="{{canIUseOpenData}}">
+        <view class="top_2">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <open-data type="userNickName" class="top_1"></open-data>
+      </view>
+      <view class="top_box" wx:elif="{{!hasUserInfo}}">
+        <view class="top_1" bindtap="getUserProfile">
+          <view wx:if="{{canIUseGetUserProfile}}" class="top_1_1">点击登录</view>
+          <view wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="top_1_1"> 登录 </view>
+          <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+          <view class="top_1_2">一秒登录，体验所有功能</view>
+        </view>
+        <view class="top_2">
+          <view class="avator">
+            <image src="/images/avator.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="top_box" wx:else>
+        <view class="top_1">
+          <view class="top_1_1">{{userInfo.nickName}}</view>
+          <view class="top_1_2" bindtap="goToEdit"  data-status="1">修改资料</view>
+        </view>
+        <view class="top_2">
+          <view class="avator">
+            <image bindtap="goToEdit" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="whiteblank"></view>
+    <view class="center_box">
+      <view class="center_1" bindtap="go" data-go="/pages/publish/list/list" data-status="1">
+        <image src="../../images/publish.png"></image>
+                <view>我发布的</view>
+      </view>
+      <view class="center_1" bindtap="go" data-go="/pages/sell/list/list" data-status="1">
+        <image src="../../images/sell.png"></image>
+        <view>我卖出的</view>
+      </view>
+      <view class="center_1" bindtap="go" data-go="/pages/history/list/list" data-status="1">
+        <image src="../../images/history.png"></image>
+        <view>我买到的</view>
+      </view>
+    </view>
+    <view class="whiteblank"></view>
+    <view class="bottom_box">
+          <view class="bottom_card" bindtap="go" data-go="/pages/kefu/kefu" data-status="1">
+            <view class="bottom_1">
+              <image src="/images/kefu.png"></image>
+              <view>联系客服</view>
+            </view>
+            <image src="/images/go.png"></image>
+          </view>
+
+          <view class="bottom_card" bindtap="go" data-go="/pages/about/about">
+            <view class="bottom_1">
+              <image src="/images/guanyu.png"></image>
+              <view>关于程序</view>
+            </view>
+            <image src="/images/go.png"></image>
+          </view>
+        </view>
+
+
+  </view>
+</view>

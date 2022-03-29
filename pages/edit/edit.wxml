@@ -1,0 +1,32 @@
+<view class="top-bg"></view>
+<view class="contain">
+      <view class="card">
+            <view class="title">编辑资料</view>
+            <view class="pache">手机号码：</view>
+            <view class="contact">
+                  <input bindinput="phoneInput" value="{{phone}}" maxlength="30" placeholder-class="pache"
+                        placeholder="" />
+            </view>
+            <view class="pache">校区：</view>
+            <picker bindchange="chooseCampus" value="{{ids}}" range="{{campus}}" range-key="name">
+                  <view class="campus">
+                        <block wx:if="{{ids!==-1}}">校区：{{campus[ids].name}}</block>
+                        <block wx:if="{{ids==-1}}">请选择您所在校区</block>
+                        <image class="right" src="/images/right.png" />
+                  </view>
+            </picker>
+            <view class="pache">学院：</view>
+            <view class="contact">
+                  <input bindinput="collegeInput" value="{{college}}" maxlength="30" placeholder-class="pache"
+                        placeholder="" />
+            </view>
+            <view class="pache">宿舍楼栋：</view>
+            <view class="contact">
+                  <input bindinput="dormitoryInput" value="{{dormitory}}" maxlength="30" placeholder-class="pache"
+                        placeholder="" />
+            </view>
+      </view>
+      <!--底部确认-->
+      <button class="confirm" open-type='getUserInfo' bindtap="getUserInfo">提交修改</button>
+
+</view>

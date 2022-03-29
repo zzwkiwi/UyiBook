@@ -1,0 +1,15 @@
+<view class="top_contain">
+      <view class="des_contain">
+            <view class="name">U易书</view>
+            <view class="sign">一个致力于便捷生活的小程序</view>
+      </view>
+      <view class="avator_box">
+            <image class="avator" src="/images/indexLogo3.png"></image>
+      </view>
+</view>
+<view class="contain">
+      <view class="title">程序简介</view>
+      <view class="description">
+            <text space="emsp" decode="{{ true }}">{{des}}</text>
+      </view>
+</view>
